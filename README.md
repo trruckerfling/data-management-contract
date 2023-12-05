@@ -7,23 +7,23 @@ Before diving into coding, it is essential to take a few minutes to understand t
 - **Client/application**
 
   - send the request to Data Management Contract (DMC) to retrieve content from IPFS for consumption.
-  - continue any process in smart contract once the content is served to Data Management Contract by relayer.
+  - continue any process in smart contract once the content is served to the Data Management Contract by the relayer.
 
 - **Data Management Contract (DMC)**
 
   The main functions of DMC includes:
 
   - taking retrieval requests from client/application
-  - temporarily storing data severed by Relayer from IPFS
+  - temporarily storing data severed by the relayer from IPFS
   - serving data back to client/application to continue their process
 
 - **Relayer**: 
 
-  listen the event logs emitted from Data Management Contract. If there is a IPFS content request event log - `BlobLoadReq`, relayer will retrieve content from IPFS and send it to Data management Contract. 
+  listens to the event logs emitted from the DMC. If there is a IPFS content request event log - `BlobLoadReq`, the relayer will retrieve content from IPFS and send it to the DMC. 
 
 ![workflow](./workflow.png)
 
-This repository contains the Data Management Contract,  minimal functions of client/application and relayer. Its purpose is to demonstrate the end-to-end workflow of this Proof of Concept (PoC). 
+This repository contains the DMC and minimal functions of the client/application and relayer. Its purpose is to demonstrate the end-to-end workflow of this Proof of Concept (PoC). 
 
 You are welcome to enhance this PoC by adding more features and building products that consume the IPFS data served in the smart contract.
 
@@ -46,7 +46,7 @@ The repository is organized as follows:
 > **Note:**
 > Before getting started, we are going to need a local IPFS node to serve content. Make sure you install a [IPFS Desktop App](https://docs.ipfs.tech/install/ipfs-desktop/) in your local computer.
 
-> You can also try to retrieve data through a public IPFS gateway using any generic http request client.
+> You can also try to retrieve data [through a public IPFS gateway](https://docs.ipfs.tech/quickstart/retrieve/#fetching-the-cid-with-an-ipfs-gateway) using any generic http request client.
 
 To get started with the project, follow these steps:
 
@@ -62,7 +62,7 @@ To get started with the project, follow these steps:
    cd data-management-contract
    npm install
    ```
-   Create an `.env` file in the project so you can add your wallet key and contract address in there for this project to use.  Make sure you have enough tFIL in your wallet for testing.
+   Create an `.env` file in the project so you can add your wallet key and contract address in there for this project to use.  Make sure you have enough tFIL in your wallet for testing. You will add your DMC address after deployment, in the next step.
    ```shell
    PRIVATE_KEY=<your-wallet-key>
    DMC_ADDR=<your-dataManagementContract-address>
